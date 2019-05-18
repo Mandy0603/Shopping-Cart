@@ -1,0 +1,39 @@
+.filters {
+  width: 15%;
+  margin-right: 15px;
+
+  .star-button-container {
+    text-align: center;
+    small {
+      color: #aaa;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+  }
+  .title {
+    margin-top: 2px;
+    margin-bottom: 20px;
+  }
+  &-available-size {
+    display: inline-block;
+    margin-bottom: 10px;
+    label {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      width: 35px;
+      height: 35px;
+      font-size: 0.8em;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      border-radius: 50%;
+      line-height: 35px;
+      text-align: center;
+    }
+  }
+}
