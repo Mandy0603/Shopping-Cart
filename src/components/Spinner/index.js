@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const Spinner = props => {
-  return <div>Spinner</div>;
-};
+import './style.scss';
 
-export default Spinner;
+export default () => (
+  <div className="spinner lds-ring">
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+);

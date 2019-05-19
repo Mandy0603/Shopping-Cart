@@ -2,15 +2,13 @@ import React from "react";
 
 const StarButton = () => {
   return (
-    <div>
+    <div className="star-button-container">
       <small>Leave a star on Github if this repository was useful :)</small>
       <a
-        class="github-button"
-        href="http://localhost:3000"
+        className="github-button"
+        href="https://github.com/ntkme/github-buttons"
         data-icon="octicon-star"
-        data-size="large"
-        data-show-count="true"
-        aria-label="Star jeffersonRibeiro/react-shopping-cart on GitHub"
+        aria-label="Star ntkme/github-buttons on GitHub"
       >
         Star
       </a>

@@ -21,7 +21,6 @@
       display: inline-block;
       position: relative;
       cursor: pointer;
-      font-size: 22px;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -34,6 +33,36 @@
       border-radius: 50%;
       line-height: 35px;
       text-align: center;
+
+      &:hover input ~ .checkmark {
+        border: 1px solid #1b1a20;
+      }
+      & input:checked ~ .checkmark {
+        background-color: #696674;
+        color: #ececec;
+      }
+      &input:checked ~ .checkmark:after {
+        display: block;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+        border-radius: 50%;
+        line-height: 35px;
+        text-align: center;
+        color: #1b1a20;
+        background-color: #ececec;
+        border: 1px solid transparent;
+      }
     }
   }
 }

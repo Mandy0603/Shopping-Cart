@@ -20,54 +20,46 @@ class Shelf extends Component {
   state = {
     isLoding: false
   };
-  //   componentDidMount() {
-  //     this.handleFetchProducts();
-  //   }
-  //   compoenntWillReceiveProps(nextProps) {
-  //     const { filters: nextFilters, sort: nextSort } = nextProps;
-  //     if (nextFilters !== this.props.filters) {
-  //       this.handleFetchProducts(nextFilters, undefined);
-  //     }
-  //     if (nextSort !== this.props.sort) {
-  //       this.handleFetchProducts(undefined, nextSort);
-  //     }
-  //   }
+  componentDidMount() {
+    this.handleFetchProducts();
+  }
+  compoenntWillReceiveProps(nextProps) {
+    const { filters: nextFilters, sort: nextSort } = nextProps;
+    if (nextFilters !== this.props.filters) {
+      this.handleFetchProducts(nextFilters, undefined);
+    }
+    if (nextSort !== this.props.sort) {
+      this.handleFetchProducts(undefined, nextSort);
+    }
+  }
 
-  //   handleFetchProducts = (
-  //     filters = this.props.filters,
-  //     sort = this.props.sort
-  //   ) => {
-  //     this.setState({ isLoding: true });
-  //     this.props.fetchProducts(filters, sort, () => {
-  //       this.setState({ loading: false });
-  //     });
-  //   };
+  handleFetchProducts = (
+    filters = this.props.filters,
+    sort = this.props.sort
+  ) => {
+    this.setState({ isLoding: true });
+    this.props.fetchProducts(filters, sort, () => {
+      this.setState({ loading: false });
+    });
+  };
   render() {
-    // const { products } = this.props;
-    // const { isLoding } = this.state;
-    // return (
-    //   <React.Fragment>
-    //     {isLoding && <Spinner />}
-    //     <div>
-    //       <ShelfHeader productsLength={products.length} />
-    //       <ProductList products={products} />
-    //     </div>
-    //   </React.Fragment>
-    // );
+    const { products } = this.props;
+    const { isLoading } = this.state;
     return (
       <React.Fragment>
-        <div>
-          <ShelfHeader />
-          <ProductList />
+        {isLoading && <Spinner />}
+        <div className="shelf-container">
+          <ShelfHeader productsLength={products.length} />
+          <ProductList products={products} />
         </div>
       </React.Fragment>
     );
   }
 }
 const mapStateToProps = state => ({
-  products: state.shelf.products
-  // filters: state.filters.items,
-  // sort: state.sort.type
+  products: state.shelf.products,
+  filters: state.filters.items,
+  sort: state.sort.type
 });
 
 export default connect(

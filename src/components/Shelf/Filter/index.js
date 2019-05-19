@@ -41,7 +41,7 @@ class Filter extends React.Component {
     return (
       <div className="filters">
         <h4 className="title">Sizes:</h4>
-        {this.createCheckBox()}
+        {this.createCheckBoxes()}
         <GithubStarButton />
       </div>
     );

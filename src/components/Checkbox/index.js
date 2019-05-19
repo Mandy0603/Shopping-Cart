@@ -13,10 +13,10 @@ class Checkbox extends React.Component {
     handleCheckboxChange(label);
   };
   render() {
-    const { label, classes } = this.props;
+    const { label, className } = this.props;
     const { isChecked } = this.state;
     return (
-      <div className={classes}>
+      <div className={className}>
         <label>
           <input
             type="checkbox"
