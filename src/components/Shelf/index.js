@@ -17,17 +17,22 @@ class Shelf extends Component {
     filters: PropTypes.array,
     sort: PropTypes.string
   };
+
   state = {
-    isLoding: false
+    isLoading: false
   };
+
   componentDidMount() {
     this.handleFetchProducts();
   }
-  compoenntWillReceiveProps(nextProps) {
+
+  componentWillReceiveProps(nextProps) {
     const { filters: nextFilters, sort: nextSort } = nextProps;
+
     if (nextFilters !== this.props.filters) {
       this.handleFetchProducts(nextFilters, undefined);
     }
+
     if (nextSort !== this.props.sort) {
       this.handleFetchProducts(undefined, nextSort);
     }
@@ -37,14 +42,16 @@ class Shelf extends Component {
     filters = this.props.filters,
     sort = this.props.sort
   ) => {
-    this.setState({ isLoding: true });
+    this.setState({ isLoading: true });
     this.props.fetchProducts(filters, sort, () => {
-      this.setState({ loading: false });
+      this.setState({ isLoading: false });
     });
   };
+
   render() {
     const { products } = this.props;
     const { isLoading } = this.state;
+
     return (
       <React.Fragment>
         {isLoading && <Spinner />}
@@ -56,6 +63,7 @@ class Shelf extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   products: state.shelf.products,
   filters: state.filters.items,
