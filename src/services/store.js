@@ -21,4 +21,5 @@ export default initialState => {
     };
     window.localStorage.setItem("state", JSON.stringify(persist));
   });
+  return store;
 };

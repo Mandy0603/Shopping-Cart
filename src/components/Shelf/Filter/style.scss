@@ -38,10 +38,10 @@
         border: 1px solid #1b1a20;
       }
       & input:checked ~ .checkmark {
-        background-color: #696674;
+        background-color: #4b4a4d;
         color: #ececec;
       }
-      &input:checked ~ .checkmark:after {
+      & input:checked ~ .checkmark:after {
         display: block;
       }
       input {
